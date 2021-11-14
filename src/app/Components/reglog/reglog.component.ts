@@ -49,11 +49,12 @@ export class ReglogComponent {
       rpass: this.rpass,
     };
     const localItem = JSON.parse(localStorage.getItem('data'));
-    this.data.push(val);
     const userExist = localItem.find(({ remail }) => {
-      return remail === this.email;
+      return remail === this.remail;
     });
-    if (userExist) {
+
+    if (!userExist) {
+      this.data.push(val);
       localStorage.setItem('data', JSON.stringify(this.data));
       this.snackBar.open('Register Successful', '', { duration: 1000 });
     } else {
