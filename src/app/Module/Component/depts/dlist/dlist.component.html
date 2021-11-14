@@ -1,0 +1,13 @@
+<table matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="did">Department Id</th>
+    <th mat-sort-header="dname">Department Name</th>
+    <th mat-sort-header="drole">Department role</th>
+  </tr>
+
+  <tr *ngFor="let dept of sortedData">
+    <td>{{ dept.did }}</td>
+    <td>{{ dept.dname }}</td>
+    <td>{{ dept.drole }}</td>
+  </tr>
+</table>

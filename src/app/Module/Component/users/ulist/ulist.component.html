@@ -1,0 +1,18 @@
+<table matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="uid">User Id</th>
+    <th mat-sort-header="name">User Name</th>
+    <th mat-sort-header="email">User email</th>
+    <th mat-sort-header="dname">Department Name</th>
+    <th mat-sort-header="uaddress">User address</th>
+  </tr>
+  <tr *ngFor="let dept of sortedData">
+    <td>{{ dept.uid }}</td>
+    <td>{{ dept.name }}</td>
+    <td>{{ dept.email }}</td>
+    <td>{{ dept.dname }}</td>
+    <td>
+      <address>{{ dept.uaddress }}</address>
+    </td>
+  </tr>
+</table>

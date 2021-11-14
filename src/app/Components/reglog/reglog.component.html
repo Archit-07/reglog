@@ -1,0 +1,84 @@
+<div class="center-content">
+  <mat-card class="example-card" style="background-color: cornsilk">
+    <mat-card-header>
+      <mat-card-title>Login/Register</mat-card-title>
+    </mat-card-header>
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Login">
+        <form class="example-form" (ngSubmit)="login()">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input
+              type="email"
+              matInput
+              placeholder="Email"
+              name="email"
+              [(ngModel)]="email"
+            />
+            <mat-icon matSuffix> email</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input
+              type="password"
+              matInput
+              placeholder="Password"
+              name="password"
+              [(ngModel)]="pass"
+            />
+            <mat-icon matSuffix> vpn_key</mat-icon>
+          </mat-form-field>
+          <button
+            type="submit"
+            mat-button
+            style="background-color: rgb(87, 22, 238)"
+          >
+            Login
+          </button>
+        </form>
+      </mat-tab>
+      <mat-tab label="Register">
+        <form class="example-form" (ngSubmit)="register()">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input
+              type="text"
+              matInput
+              placeholder="Full Name"
+              name="fullName"
+              [(ngModel)]="name"
+            />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input
+              type="email"
+              matInput
+              placeholder="Email"
+              name="remail"
+              [(ngModel)]="remail"
+            />
+            <mat-icon matSuffix> email</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <input
+              type="password"
+              matInput
+              placeholder="Password"
+              name="rpassword"
+              [(ngModel)]="rpass"
+            />
+            <mat-icon matSuffix> vpn_key</mat-icon>
+          </mat-form-field>
+          <button
+            type="submit"
+            mat-button
+            style="background-color: rgb(87, 22, 238)"
+          >
+            Register
+          </button>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>
