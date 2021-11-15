@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./reglog.component.css'],
 })
 export class ReglogComponent {
-  constructor(private snackBar: MatSnackBar, private router: Router) {}
   data = [];
   title = 'reglog';
   email = '';
@@ -16,14 +15,21 @@ export class ReglogComponent {
   name = '';
   remail = '';
   rpass = '';
-
+  localItem = '';
+  constructor(private snackBar: MatSnackBar, private router: Router) {
+    this.localItem = localStorage.getItem('data');
+    if (this.localItem == null) {
+      this.data = [];
+    } else {
+      this.data = JSON.parse(this.localItem);
+    }
+  }
   // tslint:disable-next-line:typedef
   login(): void {
-    const localItem = JSON.parse(localStorage.getItem('data'));
     if (this.email === 'admin' && this.pass === 'admin') {
       this.snackBar.open('Login as admin', '', { duration: 1000 });
     } else {
-      const user = localItem.find(({ remail }) => {
+      const user = this.data.find(({ remail }) => {
         return remail === this.email;
       });
       if (user && user.remail === this.email && user.rpass === this.pass) {
@@ -48,8 +54,7 @@ export class ReglogComponent {
       remail: this.remail,
       rpass: this.rpass,
     };
-    const localItem = JSON.parse(localStorage.getItem('data'));
-    const userExist = localItem.find(({ remail }) => {
+    const userExist = this.data.find(({ remail }) => {
       return remail === this.remail;
     });
 

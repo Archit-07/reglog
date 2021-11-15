@@ -40,7 +40,8 @@ export class UlistComponent {
   ];
 
   sortedData: Dept[];
-
+  // tslint:disable-next-line:ban-types
+  search: String = '';
   constructor() {
     this.sortedData = this.dept.slice();
   }

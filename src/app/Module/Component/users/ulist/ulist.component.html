@@ -1,3 +1,10 @@
+<input
+  type="text"
+  class="form-control"
+  placeholder="Search..."
+  [(ngModel)]="search"
+/>
+<br /><br />
 <table matSort (matSortChange)="sortData($event)">
   <tr>
     <th mat-sort-header="uid">User Id</th>
@@ -6,7 +13,7 @@
     <th mat-sort-header="dname">Department Name</th>
     <th mat-sort-header="uaddress">User address</th>
   </tr>
-  <tr *ngFor="let dept of sortedData">
+  <tr *ngFor="let dept of sortedData | filter: search">
     <td>{{ dept.uid }}</td>
     <td>{{ dept.name }}</td>
     <td>{{ dept.email }}</td>

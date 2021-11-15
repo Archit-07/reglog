@@ -20,11 +20,12 @@ export class DlistComponent {
   ];
 
   sortedData: Dept[];
+  // tslint:disable-next-line:ban-types
+  search: String = '';
 
   constructor() {
     this.sortedData = this.dept.slice();
   }
-
   // tslint:disable-next-line:typedef
   sortData(sort: Sort) {
     const data = this.dept.slice();
